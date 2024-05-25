@@ -1,7 +1,8 @@
 import os
 
 from src import *
-from src import azlyrics, csv_parser, box_sdk
+from src import azlyrics, csv_parser
+from src import filesystem as box_sdk
 
 
 def scrape():
