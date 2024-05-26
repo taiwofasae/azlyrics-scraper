@@ -16,7 +16,9 @@ def exists_song(csv_letter, artist_url, song_url):
     exists_file = os.path.isfile(csv_file_name)
     if exists_file:
         with open(csv_file_name, 'r') as file:
-            rows = [row for row in csv.reader(file)][1:]
+            #rows = [row for row in csv.reader(file)]
+            rows = [[x.lstrip('\"').rstrip('\"') for x in line.rstrip().split('","',4)] for line in file]
+            rows = rows[1:]
             rows = [row for row in rows if row[1] == artist_url and row[3] == song_url]
             if rows:
                 return True
