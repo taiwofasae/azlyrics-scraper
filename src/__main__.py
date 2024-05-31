@@ -21,7 +21,7 @@ def scrape():
             
             print(f'[2] Scraping song URLs for {artist_name}...')
             song_url_list = azlyrics.get_song_url_list(artist_url)
-            print(f'[2] ---> {len(artist_url_list)} artists found with letter [{artist_letter}]')
+            print(f'[2] ---> {len(song_url_list)} songs found with artist [{artist_name}]')
             for song_name, song_url in song_url_list:
                 print(f'[3] Scraping lyrics for song: [{song_name}]')
                 if not csv_parser.exists_song(artist_letter, artist_url, song_url):
