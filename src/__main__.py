@@ -26,6 +26,10 @@ def scrape():
                 print(f'[3] Scraping lyrics for song: [{song_name}]')
                 if not csv_parser.exists_song(artist_letter, artist_url, song_url):
                     song_lyrics = azlyrics.get_song_lyrics(song_url)
+                    lines = song_lyrics.split('\n')
+                    line_lengths = [len(l) for l in lines]
+                    print(f'[3] ---> [{song_name}] {len(lines)} lines and {len(song_lyrics)} characters')
+                    print(f'[3] ---> [{song_name}] longest line: {lines[line_lengths.index(max(line_lengths))]}')
                     csv_parser.append_to_csv(artist_name, artist_url, song_name, song_url, song_lyrics, artist_letter)
 
 
