@@ -12,6 +12,9 @@ def clean_url(url_str):
     """
     url_str = url_str.lower()
     url_str = url_str.strip()
+
+    strips = url_str.split('https://')
+    url_str = 'https://' + strips[-1]
     return url_str
 
 
@@ -42,3 +45,15 @@ def clean_lyrics(lyrics_str):
             lyrics_str = lyrics_str.replace(to_be_replaced, to_replace)
     lyrics_str = lyrics_str.strip()
     return lyrics_str
+
+def flag_lyrics(lyrics_str):
+    """
+    Flags a given string of song lyrics if contains spam keywords.
+    :param lyrics_str: String formatted lyrics.
+    :return: True if lyrics is flagged else False.
+    """
+    for flag in BAD_LYRIC_PHRASES:
+        if flag in lyrics_str:
+            return True
+        
+    return False

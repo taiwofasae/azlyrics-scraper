@@ -47,6 +47,10 @@ STR_CLEAN_DICT = {
     ':.': ':'
 }
 
+BAD_LYRIC_PHRASES = [
+    'Type the characters from the picture above:'
+]
+
 # Box integration
 BOX_CONFIG_FILE_PATH = 'data/jwt_config.json'
 BOX_RETRIES = 3
@@ -82,5 +86,6 @@ __all__ = [
     'BOX_FOLDER_APP_ID',
     'BOX_LINK_OPEN_ACCESS',
     'BOX_LINK_ALLOW_DOWNLOAD',
-    'BOX_LINK_ALLOW_PREVIEW'
+    'BOX_LINK_ALLOW_PREVIEW',
+    'BAD_LYRIC_PHRASES'
 ]

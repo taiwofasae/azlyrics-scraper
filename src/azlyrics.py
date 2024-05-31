@@ -101,8 +101,10 @@ def get_song_lyrics(song_url):
             soup = BeautifulSoup(html_content, 'html.parser')
             div_list = [div.text for div in soup.find_all('div', {'class': None})]
             song_lyrics = max(div_list, key=len)
-            song_lyrics = string_cleaner.clean_lyrics(song_lyrics)
+            #song_lyrics = string_cleaner.clean_lyrics(song_lyrics)
     except Exception as e:
         print(f'Error while getting lyrics from song {song_url}: {e}')
 
+    if string_cleaner.flag_lyrics(song_lyrics):
+        return ''
     return song_lyrics
